@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../Assets/img/logo.png";
+import logo from "../../../Assets/img/jahangirnagar-university-logo-2094E07FAB-seeklogo.com.png";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 const Navbar = () => {
-  const { user,logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -30,7 +30,21 @@ const Navbar = () => {
       {user?.uid ? (
         <>
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/profile">
+              {user ? (
+               
+                  <div className="flex items-center justify-center">
+                    <img
+                    src={user.photoURL}
+                    className="rounded-full border-solid  border-primary border-2 w-3/5"
+                    alt=""
+                  />
+                  </div>
+                
+              ) : (
+                <></>
+              )}
+            </Link>
           </li>
           <li>
             <button onClick={handleLogOut}>Logout</button>
@@ -45,7 +59,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-cyan-50	px-20  flex justify-between">
+    <div className="navbar bg-lime-50	 px-10  flex justify-between">
       <div className="navbar-start">
         <div className="dropdown ">
           <div className="flex items-center">
@@ -79,8 +93,9 @@ const Navbar = () => {
             {/* <img src={user?.photoURL} width='30%' alt="" /> */}
           </ul>
         </div>
-        <Link to="/" className="mx-20">
+        <Link to="/" className="mx-20 flex justify-center items-center">
           <img width="80px" src={logo} alt="" />
+          <h1 className="mx-5 text-4xl text-[green] ">JU CAFE</h1>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">

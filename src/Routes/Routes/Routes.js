@@ -7,6 +7,7 @@ import Home from './../../Pages/Home/Home/Home';
 import Menu from './../../Pages/FoodMenu/Menu/Menu';
 import About from './../../Pages/Home/About/About';
 import Gallery from './../../Pages/Home/Gallery/Gallery';
+import NotFound from "../../Pages/Others/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h1>404</h1>,
+    element: <NotFound></NotFound>,
   },
 ]);
 export default router;
